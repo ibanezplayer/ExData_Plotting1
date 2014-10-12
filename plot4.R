@@ -24,17 +24,17 @@ par(mfrow=c(2,2))
 with(s,
 	{
 		#plot 1
-		plot(s$datetime,s$Global_active_power,ylab="Global Active Power")
+		plot(s$datetime,s$Global_active_power,xlab="",ylab="Global Active Power",type="l")
 		#plot 2
-		plot(s$datetime,s$Voltage,ylab="Voltage",xlab="datetime")
+		plot(s$datetime,s$Voltage,ylab="Voltage",xlab="datetime",type="l")
 		#plot 3
-		plot(s$datetime,s$Sub_metering_1,ylab="Energy sub metering",type="n")
+		plot(s$datetime,s$Sub_metering_1,xlab="",ylab="Energy sub metering",type="n")
 		lines(s$datetime,s$Sub_metering_1,ylab="",col="black")
 		lines(s$datetime,s$Sub_metering_2,ylab="",col="red")
 		lines(s$datetime,s$Sub_metering_3,ylab="",col="blue")
 		legend("topright",c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),col=c("black","red","blue"),lty=1,cex=.5)
 		#plot4
-		plot(s$datetime,s$Global_reactive_power,ylab="Global Reactive Power",xlab="datetime")
+		plot(s$datetime,s$Global_reactive_power,ylab="Global Reactive Power",xlab="datetime",type="l")
 	}
 )
 dev.off()

@@ -15,5 +15,5 @@ if(!exists("d"))
 }
 ##create a png of Plot 2
 png("Plot 2.png")
-plot(s$datetime,s$Global_active_power,ylab="Global Active Power (kilowatts)")
+plot(s$datetime,s$Global_active_power,xlab="",ylab="Global Active Power (kilowatts)",type="l")
 dev.off()
