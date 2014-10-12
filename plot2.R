@@ -1,0 +1,17 @@
+## Use these 2 commands to set dir and load code
+#setwd("C:\\Stacey\\R\\Coursera\\Analyzing Data\\Week 1")
+#source("plot2.R")
+
+##load the data
+if(!exists("d"))
+{
+	d<-read.table("household_power_consumption.txt", na.strings="?", header=TRUE, sep=";")
+	##convert the date
+	d$Date<-as.Date(d$Date,"%d/%m/%Y")
+	#get a subset of the data for the required dates
+	s<-subset(d,Date %in% as.Date(c("2007-02-01","2007-02-02")))
+}
+##create a png of Plot 2
+png("Plot 2.png")
+plot(s$Time,s$Global_active_power,ylab="Global Active Power (kilowatts)")
+dev.off()
