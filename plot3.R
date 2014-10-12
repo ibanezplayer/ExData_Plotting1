@@ -10,14 +10,16 @@ if(!exists("d"))
 	d$Date<-as.Date(d$Date,"%d/%m/%Y")
 	#get a subset of the data for the required dates
 	s<-subset(d,Date %in% as.Date(c("2007-02-01","2007-02-02")))
+	#get datetime
+	s$datetime<-strptime(paste(s$Date,s$Time),"%Y-%m-%d %H:%M:%S")
 }
 
 ##create a png of Plot 3
 png("Plot 3.png")
-plot(s$Time,s$Sub_metering_1,ylab="Energy Sub Metering",type="n")
-lines(s$Time,s$Sub_metering_1,ylab="",col="black")
-lines(s$Time,s$Sub_metering_2,ylab="",col="red")
-lines(s$Time,s$Sub_metering_3,ylab="",col="blue")
+plot(s$datetime,s$Sub_metering_1,ylab="Energy Sub Metering",type="n")
+lines(s$datetime,s$Sub_metering_1,ylab="",col="black")
+lines(s$datetime,s$Sub_metering_2,ylab="",col="red")
+lines(s$datetime,s$Sub_metering_3,ylab="",col="blue")
 legend("topright",c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),col=c("black","red","blue"),lty=1)
 dev.off()
 

@@ -10,8 +10,10 @@ if(!exists("d"))
 	d$Date<-as.Date(d$Date,"%d/%m/%Y")
 	#get a subset of the data for the required dates
 	s<-subset(d,Date %in% as.Date(c("2007-02-01","2007-02-02")))
+	#get datetime
+	s$datetime<-strptime(paste(s$Date,s$Time),"%Y-%m-%d %H:%M:%S")
 }
 ##create a png of Plot 2
 png("Plot 2.png")
-plot(s$Time,s$Global_active_power,ylab="Global Active Power (kilowatts)")
+plot(s$datetime,s$Global_active_power,ylab="Global Active Power (kilowatts)")
 dev.off()
