@@ -14,7 +14,7 @@ if(!exists("d"))
 	s$datetime<-strptime(paste(s$Date,s$Time),"%Y-%m-%d %H:%M:%S")
 
 }
-
+ 
 ##create a png of Plot 1
 png("Plot 1.png")
 hist(s$Global_active_power,col="red",xlab="Global Active Power",ylab="Frequency",main="Global Active Power")
